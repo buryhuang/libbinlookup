@@ -12,3 +12,21 @@ On the other hand, as times goes by, the novel levelDB from Google has been matu
 Using bloom filter is also mature in most areas.
 
 Combining all the common techiques and general available frameworks, we can easily have the stable and high performance finger print lookup system that people used to have to create an enterprise to home-brew one.
+
+Yet another level, in-memory is a trend. LevelDB takes care of it too with the memory-storage leveling/post-merge tree.
+
+# Interface
+- bin_uri
+  - \<blob_uri:offset:length>
+
+- put(key, bin_uri)
+  - [return] boolean
+
+- get(key)
+  - [return] bin_uri
+
+- puts(std::vector\<key, bin_uri>)
+  - [return] boolean
+
+- gets(std::vector\<key>)
+  - [return] std::vector\<key, bin_uri>
